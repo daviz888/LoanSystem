@@ -7,6 +7,6 @@ namespace LoanSystem.WebUI.Models
     public class CustomerListViewModel
     {
         public IEnumerable<Customer> Customers { get; set; }
-        
+        public PagingInfo PagingInfo { get; set; }
     }
 }

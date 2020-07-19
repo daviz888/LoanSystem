@@ -50,4 +50,14 @@
       }
     }
   })
+
+    $('#deleteModal').on('show.bs.modal', function (event) {
+        var custID = $(event.relatedTarget).data('content');
+        $(this).find(".modal-body").text(custID);
+        $(this).find("#CustomerID").value(custID);
+
+    });
+
 }())
+
+
