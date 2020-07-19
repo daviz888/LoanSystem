@@ -1,0 +1,14 @@
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\LoanSystem.Tests.dll
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\LoanSystem.Tests.pdb
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.csprojAssemblyReference.cache
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.csproj.CoreCompileInputs.cache
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.csproj.CopyComplete
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.dll
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.pdb
