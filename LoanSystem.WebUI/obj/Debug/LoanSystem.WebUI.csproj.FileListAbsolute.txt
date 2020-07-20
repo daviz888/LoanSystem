@@ -74,3 +74,5 @@ C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\obj\Debug\LoanSystem.Web
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\obj\Debug\LoanSystem.WebUI.csproj.CopyComplete
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\obj\Debug\LoanSystem.WebUI.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\obj\Debug\LoanSystem.WebUI.pdb
+C:\Users\Snitz\Source\Repos\LoanSystem\LoanSystem.WebUI\obj\Debug\LoanSystem.WebUI.csprojAssemblyReference.cache
+C:\Users\Snitz\Source\Repos\LoanSystem\LoanSystem.WebUI\obj\Debug\LoanSystem.WebUI.csproj.CoreCompileInputs.cache
