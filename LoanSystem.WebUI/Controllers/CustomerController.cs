@@ -14,28 +14,32 @@ namespace LoanSystem.WebUI.Controllers
     {
         private ICustomerRepository repository;
 
-        public int PageSize = 15;
+        public int PageSize = 12;
         
         public CustomerController(ICustomerRepository custRepo)
         {
             this.repository = custRepo;
         }
-        public ViewResult CustomerList(int page = 1)
+        public ViewResult CustomerList(string searchText = "", int page = 1)
         {
             CustomerListViewModel model = new CustomerListViewModel
             {
                 Customers = repository.Customers
+                 .Where(c => c.LastName.Contains(searchText.ToUpper()))
                  .OrderBy(c => c.LastName)
                  .ThenBy(c => c.FirstName)
                  .Skip((page - 1) * PageSize)
                  .Take(PageSize),
                 PagingInfo = new PagingInfo
-                { 
+                {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = repository.Customers.Count()
-                    },
-            };
+                    TotalItems = searchText == null ?
+                        repository.Customers.Count() :
+                        repository.Customers.Where(e => e.LastName.Contains(searchText.ToUpper())).Count()
+                },
+                CurrentSearch = searchText
+            };            
             return View(model);
         }
 

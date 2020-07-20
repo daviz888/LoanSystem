@@ -103,8 +103,6 @@
     }
 
 
-
-
 .footer {
     position: fixed;
     left: 0;
@@ -114,3 +112,34 @@
     background-color: rgba(0,0,0,.25)
 }
 
+/*Search form styles*/
+form.search input[type=text] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px thin grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.search #searchBtn {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 14px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+    form.search #searchBtn:hover {
+        background: #0b7dda;
+    }
+
+form.search::after {
+    content: "";
+    clear: both;
+    display: table;
+}

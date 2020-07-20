@@ -8,5 +8,6 @@ namespace LoanSystem.WebUI.Models
     {
         public IEnumerable<Customer> Customers { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public string CurrentSearch { get; set; }
     }
 }

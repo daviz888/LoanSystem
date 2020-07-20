@@ -8,18 +8,14 @@
     <div class="card mt-2">
         <div class="card-header  font-weight-bold">All Customers</div>
         <div class="card-body">
-            @*<div class="card-title">*@                
-                <form class="form-inline">
-                    <div class="col-md-10">
-                        <div class="form-group mb-2">
-                            <input type="text" class="form-control w-100" placeholder="Enter Lastname" aria-label="searchText">
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-secondary mb-2">Search</button>
-                    </div>
-                </form>
-            @*</div>*@
+            <div class="card-title">
+                @using (Html.BeginForm("CustomerList", "Customer", FormMethod.Post, new { @class="search" }))
+                {
+                    @Html.TextBox("searchText", null, new { @placeholder = "Enter customer lastname..." })
+                    <input type="submit" id="searchBtn" value="Search" />
+                }
+
+            </div>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -36,7 +32,7 @@
                     </thead>
                     <tbody>
                         @foreach (var item in Model.Customers)
-                        {
+                {
                             <tr>
                                 <td>
                                     <a href=@Url.Action("Edit", "Customer", new { item.CustomerID })
@@ -76,7 +72,7 @@
                    new { @class = "btn btn-secondary" })
             <div class="btn-group float-right">
                 @Html.PageLinks(Model.PagingInfo, x => Url.Action("CustomerList",
-                        new { page = x }))
+                        new { page = x, searchText = Model.CurrentSearch }))
             </div>
         </div>
     </div>

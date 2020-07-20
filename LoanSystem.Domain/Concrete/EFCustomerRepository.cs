@@ -24,11 +24,11 @@ namespace LoanSystem.Domain.Concrete
                 Customer dbEntry = context.Customers.Find(customer.CustomerID);
                 if (dbEntry != null)
                 {
-                    dbEntry.FirstName = customer.FirstName;
-                    dbEntry.LastName = customer.LastName;
-                    dbEntry.Address = customer.Address;
-                    dbEntry.City = customer.City;
-                    dbEntry.State = customer.State;
+                    dbEntry.FirstName = customer.FirstName.ToUpper();
+                    dbEntry.LastName = customer.LastName.ToUpper();
+                    dbEntry.Address = customer.Address.ToUpper();
+                    dbEntry.City = customer.City.ToUpper();
+                    dbEntry.State = customer.State.ToUpper();
                     dbEntry.Zip = customer.Zip;
                 }
             }
