@@ -1,70 +1,86 @@
 ﻿@model LoanSystem.WebUI.Models.CustomerListViewModel
 
 @{
-    ViewBag.Title = "CustomerList";
+    ViewBag.Title = "Customer List";
 }
 
-<h3>CustomerList</h3>
-@if (TempData["message"] != null)
-{
-    <div class="alert alert-success">@TempData["message"]</div>
-}
-<div class="table-responsive">
-    <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <th>Customer ID</th>
-                <th>Last Name</th>
-                <th>First Name</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Zip</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Customers)
-            {
-                <tr>
-                    <td>
-                        <a href=@Url.Action("Edit", "Customer", new { item.CustomerID })
-                           class="text-center">
-                            @item.CustomerID.ToString("D8")
-                        </a>
-                    </td>
-                    @*<td>@item.CustomerID.ToString("D8")</td>*@
-                    <td>@item.LastName</td>
-                    <td>@item.FirstName</td>
-                    <td>@item.Address</td>
-                    <td>@item.City</td>
-                    <td>@item.State</td>
-                    <td>@item.Zip</td>
-                    <td>
-                        @*<a href=@Url.Action("Delete", "Customer", new { item.CustomerID })
-                               class="btn btn-danger btn-sm">
-                                Delete
-                            </a>*@
-                        @* <input type="submit" class="btn btn-danger btn-sx" value="Delete" />*@
 
-                        <!-- Button trigger modal -->
+    <div class="card mt-2">
+        <div class="card-header  font-weight-bold">All Customers</div>
+        <div class="card-body">
+            @*<div class="card-title">*@                
+                <form class="form-inline">
+                    <div class="col-md-10">
+                        <div class="form-group mb-2">
+                            <input type="text" class="form-control w-100" placeholder="Enter Lastname" aria-label="searchText">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-secondary mb-2">Search</button>
+                    </div>
+                </form>
+            @*</div>*@
+            <div class="table-responsive">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Zip</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Customers)
+                        {
+                            <tr>
+                                <td>
+                                    <a href=@Url.Action("Edit", "Customer", new { item.CustomerID })
+                                       class="text-center">
+                                        @item.CustomerID.ToString("D8")
+                                    </a>
+                                </td>
+                                <td>@item.LastName</td>
+                                <td>@item.FirstName</td>
+                                <td>@item.Address</td>
+                                <td>@item.City</td>
+                                <td>@item.State</td>
+                                <td>@item.Zip</td>
+                                <td>
+                                    @*<a href=@Url.Action("Delete", "Customer", new { item.CustomerID })
+                                       class="btn btn-danger btn-sm">
+                                        Delete
+                                    </a>*@
+                                    @* <input type="submit" class="btn btn-danger btn-sx" value="Delete" />*@
 
-                        <button id="deleteBtn" type="button" class="btn btn-danger btn-sm" data-content="@item.CustomerID" data-toggle="modal" data-target="#deleteModal">
-                            Delete
-                        </button>
+                                    <!-- Button trigger modal -->
 
-                    </td>
-                </tr>
-            }
+                                    <button id="deleteBtn" type="button" class="btn btn-danger btn-sm" data-content="@item.CustomerID" data-toggle="modal" data-target="#deleteModal">
+                                        Delete
+                                    </button>
 
-        </tbody>
-    </table>
-</div>
+                                </td>
+                            </tr>
+                        }
 
-<div class="btn-group float-right">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("CustomerList",
-            new { page = x }))
-</div>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+                @Html.ActionLink("Add a new Customer", "Create", null,
+                   new { @class = "btn btn-secondary" })
+            <div class="btn-group float-right">
+                @Html.PageLinks(Model.PagingInfo, x => Url.Action("CustomerList",
+                        new { page = x }))
+            </div>
+        </div>
+    </div>
+
 
 <!-- Deletion Modal Window -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
@@ -97,4 +113,6 @@
         </div>
     </div>
 </div>
+
+
 
