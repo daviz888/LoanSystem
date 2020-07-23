@@ -19,7 +19,7 @@ namespace LoanSystem.WebUI
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-           routes.MapRoute(null, "{controller}/{action}");
+            routes.MapRoute(null, "{controller}/{action}");
         }
     }
 }

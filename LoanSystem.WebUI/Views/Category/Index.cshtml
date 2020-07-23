@@ -1,0 +1,42 @@
+﻿@model LoanSystem.WebUI.Models.CategoryListViewModel
+
+@{
+    ViewBag.Title = "Category List";
+}
+
+<div class="card">
+    <div class="card-header"> Customer List</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Category ID</td>
+                        <td>Category Name</td>
+                        <td>Remarks</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Categories)
+                    {
+                        <tr>
+                            <td>                                
+                                <a href="@Url.Action("Edit","Category", new { item.CategoryID})">@item.CategoryID.ToString("D4")</a>
+                            </td>
+                            <td>@item.Name</td>
+                            <td>@item.Remarks</td>
+                            <td>
+                                <input type="button" class="btn btn-danger btn-sm" value="Delete" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Add New Category", "Create", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>
+

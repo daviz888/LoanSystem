@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Loan System">
     <meta name="author" content="Daffy Duck">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Loan System</title>
 
     <!-- Bootstrap core CSS -->
     @Styles.Render("~/Content/css")
@@ -19,7 +19,6 @@
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-         @*<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">*@ 
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <a class="nav-link" href="#">Sign out</a>
@@ -46,22 +45,21 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Orders
-                            </a>
+                            <a class="nav-link" href="@Url.Action("Index","Category")">
+                                    <span data-feather="book-open"></span>
+                                    Categories
+                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="@Url.Action("List", "Product")">
                                 <span data-feather="shopping-cart"></span>
                                 Products
                             </a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                Reports
+                                <span data-feather="file"></span>
+                                Orders
                             </a>
                         </li>
                         <li class="nav-item">
@@ -137,13 +135,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     @Scripts.Render("~/bundles/dashboard")
 <script type="text/javascript">
+    //customer deletion script
     $('#deleteModal').on('show.bs.modal', function (event) {
         var myVal = $(event.relatedTarget).data('content');
-        $(this).find("#Custid").text(myVal);      
-        $("#Custid").val(myVal);
         $("#CustomerID").val(myVal);
 
     });
+
+    //product deletion
+    $('#deleteProdModal').on('show.bs.modal', function (event) {
+        var prodName = $(event.relatedTarget).data('value');
+        //var prodDeletion = "Are you sure you want to delete " + prodName + "?";
+        var myVal = $(event.relatedTarget).data('content');
+        $(this).find("#deleteProdName").text(prodName);
+        $("#ProductID").val(myVal);
+
+    });
+
 </script>
 </body>
 </html>

@@ -4,22 +4,22 @@
     ViewBag.Title = ViewBag.CustomerAction;
 }
 
-@using (Html.BeginForm("Edit","Customer"))
+@using (Html.BeginForm("Edit", "Customer"))
 {
     @Html.AntiForgeryToken()
 
     <div class="card mt-2">
         <div class="card-header font-weight-bold">@ViewBag.CustomerAction : @Model.FirstName @Model.LastName </div>
         <div class="card-body">
-            <div class="form-horizontal">  
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                 @Html.HiddenFor(model => model.CustomerID)
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control text-uppercase" } })
                         @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control text-uppercase" } })
                         @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -63,8 +63,6 @@
                         @Html.ValidationMessageFor(model => model.Zip, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-
             </div>
         </div>
         <div class="card-footer">
@@ -77,5 +75,4 @@
         </div>
     </div>
 }
-
 

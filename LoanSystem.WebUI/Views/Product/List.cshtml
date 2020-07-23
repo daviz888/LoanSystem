@@ -1,0 +1,106 @@
+﻿@model LoanSystem.WebUI.Models.ProductListViewModel
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="card mt-2">
+    <div class="card-header font-weight-bold">Product List</div>
+    <div class="card-body">
+        <div class="card-title">
+            @using (Html.BeginForm("List", "Product", FormMethod.Post, new { @class = "form-row align-items-center" }))
+            {
+                <div class="col-md-2">
+                    <p class="font-weight-bold">Select Category</p>
+                </div>                
+                <div class="col-md-5">
+                    @Html.DropDownList("SelectedCategory", null, "All", htmlAttributes: new { @class = "custom-select mb-2" })
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-info mb-2">Filter</button>
+                </div>
+            }
+
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-stripe">
+                <thead class="thead-light">
+                    <tr>
+                        <td>ProductID</td>
+                        <td>Name</td>
+                        <td>Description</td>
+                        <td>Category</td>
+                        <td>Unit</td>
+                        <td>Price</td>
+                        <td>Photo</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Products)
+                    {
+                        <tr>
+                            <td class="align-middle"><a href="@Url.Action("Update","Product", new { item.ProductID})">@item.ProductID.ToString("D6")</a></td>
+                            <td class="align-middle">@item.Name</td>
+                            <td class="align-middle">@item.Description</td>
+                            <td class="align-middle">@item.Category.Name</td>
+                            <td class="align-middle">@item.Unit</td>
+                            <td class="align-middle">@item.Price.ToString("c")</td>
+                            <td class="align-middle">
+                                <img class="img-thumbnail" width="64" height="64"
+                                     src="@Url.Action("GetImage", "Product", new { @item.ProductID })" />
+                            </td>
+                            <td class="align-middle">
+                                <!-- Button trigger modal -->
+                                <button id="deleteProdBtn" type="button" class="btn btn-danger btn-sm" data-value="@item.Name" data-content="@item.ProductID" data-toggle="modal" data-target="#deleteProdModal">
+                                    Delete
+                                </button>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        @Html.ActionLink("Add new product", "Create", null, new { @class = "btn btn-secondary" })
+        <div class="btn-group float-right">
+            @Html.PageLinks(Model.PagingInfo, x => Url.Action("List",
+                     new { page = x, searchText = Model.CurrentCategory }))
+        </div>
+    </div>
+</div>
+
+
+<!-- Deletion Modal Window -->
+<div class="modal fade" id="deleteProdModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Warning!!! Product Deletion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure, you want to delete <span class="font-weight-bold text-danger" id="deleteProdName"></span> record?</p>                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+
+                @using (Html.BeginForm("Delete", "Product"))
+                {
+                    @Html.Hidden("ProductID")
+                    <input type="submit"
+                           class="btn btn-danger btn-xs"
+                           value="Yes Proceed" />
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,5 @@
+C:\Users\Snitz\Source\Repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csprojAssemblyReference.cache
+C:\Users\Snitz\Source\Repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csproj.CoreCompileInputs.cache
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\bin\Debug\LoanSystem.Domain.dll.config
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\bin\Debug\LoanSystem.Domain.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\bin\Debug\LoanSystem.Domain.pdb
@@ -5,10 +7,8 @@ C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\bin\Debug\EntityFramewo
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\bin\Debug\EntityFramework.xml
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csprojAssemblyReference.cache
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csproj.CoreCompileInputs.cache
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csproj.CopyComplete
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.pdb
-C:\Users\Snitz\Source\Repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csprojAssemblyReference.cache
-C:\Users\Snitz\Source\Repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csproj.CoreCompileInputs.cache
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csprojAssemblyReference.cache

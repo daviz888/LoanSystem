@@ -13,6 +13,11 @@ namespace LoanSystem.Domain.Concrete
             get { return context.Products; }
         }
 
+        public IEnumerable<Category> Categories
+        {
+            get { return context.Categories; }
+        }
+
         public void SaveProduct(Product product)
         {
             if (product.ProductID == 0)
@@ -24,15 +29,19 @@ namespace LoanSystem.Domain.Concrete
                 Product dbEntry = context.Products.Find(product.ProductID);
                 if (dbEntry != null)
                 {
+                    dbEntry.Name = product.Name.ToUpper();
                     dbEntry.Description = product.Description.ToUpper();
-                    dbEntry.Unit = product.Unit.ToUpper();
+                    dbEntry.CategoryID = product.CategoryID;
+                    dbEntry.Unit = product.Unit;
                     dbEntry.Price = product.Price;
+                    dbEntry.ImageData = product.ImageData;
+                    dbEntry.ImageMimeType = product.ImageMimeType;
                 }
             }
             context.SaveChanges();
         }
 
-        Product DeleteProduct(int productID)
+        public Product DeleteProduct(int productID)
         {
             Product dbEntry = context.Products.Find(productID);
             if (dbEntry != null)

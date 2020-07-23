@@ -20,12 +20,12 @@ namespace LoanSystem.WebUI.Controllers
         {
             this.repository = custRepo;
         }
-        public ViewResult CustomerList(string searchText = "", int page = 1)
+        public ViewResult CustomerList(string searchString="", int page = 1)
         {
             CustomerListViewModel model = new CustomerListViewModel
             {
                 Customers = repository.Customers
-                 .Where(c => c.LastName.Contains(searchText.ToUpper()))
+                 .Where(c => c.LastName.Contains(searchString.ToUpper()))
                  .OrderBy(c => c.LastName)
                  .ThenBy(c => c.FirstName)
                  .Skip((page - 1) * PageSize)
@@ -34,11 +34,11 @@ namespace LoanSystem.WebUI.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = searchText == null ?
+                    TotalItems = searchString == null ?
                         repository.Customers.Count() :
-                        repository.Customers.Where(e => e.LastName.Contains(searchText.ToUpper())).Count()
+                        repository.Customers.Where(e => e.LastName.Contains(searchString.ToUpper())).Count()
                 },
-                CurrentSearch = searchText
+                CurrentSearch = searchString
             };            
             return View(model);
         }
@@ -48,6 +48,7 @@ namespace LoanSystem.WebUI.Controllers
             ViewBag.CustomerAction = "Create New Customer";
             return View("Edit", new Customer());
         }
+
         public ViewResult Edit(int customerID)
         {
             ViewBag.CustomerAction = "Edit Customer";
