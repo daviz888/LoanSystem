@@ -21,8 +21,8 @@ C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.Visu
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.csprojAssemblyReference.cache
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.csproj.CoreCompileInputs.cache
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.csproj.CopyComplete
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.pdb
-C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Tests\obj\Debug\LoanSystem.Tests.csprojAssemblyReference.cache

@@ -27,7 +27,8 @@
                             <td>@item.Name</td>
                             <td>@item.Remarks</td>
                             <td>
-                                <input type="button" class="btn btn-danger btn-sm" value="Delete" />
+                                <a href="@Url.Action("Delete", "Category", new {item.CategoryID})" class="btn btn-danger btn-sm">Delete</a>
+                                @*<input type="button" class="btn btn-danger btn-sm" value="Delete" />*@
                             </td>
                         </tr>
                     }
