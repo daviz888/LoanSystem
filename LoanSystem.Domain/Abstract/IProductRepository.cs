@@ -9,7 +9,7 @@ namespace LoanSystem.Domain.Abstract
         void SaveProduct(Product product);
         Product DeleteProduct(int productID);
 
-        IEnumerable<Category> Categories { get; }
+        IEnumerable<Category> Categories { get; }      
 
     }
 }

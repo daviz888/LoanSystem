@@ -46,7 +46,7 @@
                             <td class="align-middle">@item.Description</td>
                             <td class="align-middle">@item.Category.Name</td>
                             <td class="align-middle">@item.Unit</td>
-                            <td class="align-middle">@item.Price.ToString("c")</td>
+                            <td class="align-middle">@item.Price.Product_Price.ToString("c")</td>
                             <td class="align-middle">
                                 <img class="img-thumbnail" width="64" height="64"
                                      src="@Url.Action("GetImage", "Product", new { @item.ProductID })" />

@@ -43,8 +43,7 @@ namespace LoanSystem.WebUI.Controllers
                         repository.Products.Count() :
                         repository.Products.Where(p => p.CategoryID == SelectedCategory).Count()
                 },
-
-                CurrentCategory = SelectedCategory
+                CurrentCategory = SelectedCategory,               
             };
 
             return View(model);

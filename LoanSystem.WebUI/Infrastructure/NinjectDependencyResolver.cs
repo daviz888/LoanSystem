@@ -35,6 +35,7 @@ namespace LoanSystem.WebUI.Infrastructure
             kernel.Bind<ICustomerRepository>().To<EFCustomerRepository>();
             kernel.Bind<IProductRepository>().To<EFProductRepository>();
             kernel.Bind<ICategoryRepository>().To<EFCategoryRepository>();
+            kernel.Bind<IPriceRepository>().To<EFPriceRepository>();
         }
     }
 }

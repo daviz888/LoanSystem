@@ -12,5 +12,6 @@ namespace LoanSystem.WebUI.Models
         public PagingInfo PagingInfo { get; set; }
         public int? CurrentCategory { get; set; }
 
+        public IEnumerable<Price> Prices { get; set; }
     }
 }

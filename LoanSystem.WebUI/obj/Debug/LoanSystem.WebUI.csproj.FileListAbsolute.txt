@@ -44,6 +44,8 @@ C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\Ninject.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\Ninject.Web.Common.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\Ninject.Web.Common.WebHost.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\Ninject.Web.Mvc.dll
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\PagedList.dll
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\PagedList.Mvc.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\System.Web.Helpers.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\System.Web.Mvc.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\System.Web.Optimization.dll
@@ -63,6 +65,8 @@ C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\Ninject.xml
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\Ninject.Web.Common.xml
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\Ninject.Web.Common.WebHost.xml
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\Ninject.Web.Mvc.xml
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\PagedList.xml
+C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\PagedList.Mvc.xml
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\System.Web.Helpers.xml
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\System.Web.Mvc.xml
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.WebUI\bin\System.Web.Optimization.xml
