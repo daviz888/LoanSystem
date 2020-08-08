@@ -32,7 +32,7 @@
                         <td>Description</td>
                         <td>Category</td>
                         <td>Unit</td>
-                        <td>Price</td>
+                        <td>Price(s)</td>
                         <td>Photo</td>
                         <td>Action</td>
                     </tr>
@@ -41,12 +41,25 @@
                     @foreach (var item in Model.Products)
                     {
                         <tr>
-                            <td class="align-middle"><a href="@Url.Action("Update","Product", new { item.ProductID})">@item.ProductID.ToString("D6")</a></td>
-                            <td class="align-middle">@item.Name</td>
-                            <td class="align-middle">@item.Description</td>
-                            <td class="align-middle">@item.Category.Name</td>
-                            <td class="align-middle">@item.Unit</td>
-                            <td class="align-middle">@item.Price.Product_Price.ToString("c")</td>
+                            <td><a href="@Url.Action("Update","Product", new { item.ProductID})">@item.ProductID.ToString("D6")</a></td>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>@item.Category.Name</td>
+                            <td>@item.Unit</td>                            
+                            <td>
+                                @{ 
+                                    foreach (var price in item.Prices)
+                                    {
+                                        @price.Product_Price  
+                                        if (price.Default_Price)
+                                        {
+                                            @:Current Price
+                                        }
+                                        <br/>
+                                    }
+                                }
+                            
+                            </td>
                             <td class="align-middle">
                                 <img class="img-thumbnail" width="64" height="64"
                                      src="@Url.Action("GetImage", "Product", new { @item.ProductID })" />

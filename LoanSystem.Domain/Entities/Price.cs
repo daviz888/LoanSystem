@@ -11,19 +11,20 @@ namespace LoanSystem.Domain.Entities
     {
         public int PriceID { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:MM-dd-yyyy}", ApplyFormatInEditMode =true)]
+        [DisplayFormat(DataFormatString ="{0:yyyy-MM-dd}", ApplyFormatInEditMode =true)]
         [Display(Name = "Applicable Date")]
         public DateTime Date_From { get; set; }
-
+        [Required]
         [Display(Name ="Product Name")]
         public int ProductID { get; set; }
 
         [Display(Name ="Price")]
         public decimal Product_Price { get; set; }
 
-        [Display(Name ="Default Price")]
-        public bool? Default_Price { get; set; }
+        [Required]
+        [Display(Name = "Default Price")]
+        public bool? Default_Price { get; set; } = false;
 
-        public virtual IEnumerable<Product> Products { get; set; }
+        public virtual Product Products { get; set; }
     }
 }

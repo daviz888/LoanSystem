@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace LoanSystem.Domain.Entities
@@ -16,9 +17,9 @@ namespace LoanSystem.Domain.Entities
         public string ImageMimeType { get; set; }
         public DateTime Date_Time { get; set; } = DateTime.Today;
         public int CategoryID { get; set; }
-        public int PriceID { get; set; }
+        //public int PriceID { get; set; }
 
         public virtual Category Category {get; set;}
-        public virtual Price Price { get; set; }
+        public virtual ICollection<Price> Prices { get; set; }
     }
 }

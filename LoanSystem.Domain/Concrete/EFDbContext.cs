@@ -9,5 +9,6 @@ namespace LoanSystem.Domain.Concrete
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Price> Prices { get; set; }
+        public DbSet<Interest> Interests { get; set; }
     }
 }

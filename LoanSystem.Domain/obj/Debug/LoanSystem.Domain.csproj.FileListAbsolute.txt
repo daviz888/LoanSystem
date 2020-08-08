@@ -11,4 +11,3 @@ C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Do
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csproj.CopyComplete
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.dll
 C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.pdb
-C:\Users\lorna\source\repos\LoanSystem\LoanSystem.Domain\obj\Debug\LoanSystem.Domain.csprojAssemblyReference.cache

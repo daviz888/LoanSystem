@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -10,6 +11,7 @@ using LoanSystem.Domain.Abstract;
 using LoanSystem.Domain.Concrete;
 using LoanSystem.Domain.Entities;
 using LoanSystem.WebUI.Models;
+using Microsoft.Ajax.Utilities;
 
 namespace LoanSystem.WebUI.Controllers
 {
@@ -27,13 +29,10 @@ namespace LoanSystem.WebUI.Controllers
         public ActionResult Index()
         {
             var viewModel = new PriceListViewModel();
-                viewModel = repository.Prices.Join(db.Prices, p => p.ProductID, db.Products, i => i.ProductID);
-
-            //var viewModel = new PriceListViewModel();
-            //    viewModel.Prices = db.Prices
-            //        .Join(d)
-            //        .OrderBy(p => p.ProductID);
-                            
+            viewModel.Prices = repository.Prices
+                .Include(p => p.Products)
+                .OrderBy(p => p.Products.Name);
+            
             return View(viewModel);
         }
 
@@ -55,6 +54,7 @@ namespace LoanSystem.WebUI.Controllers
         // GET: Price/Create
         public ActionResult Create()
         {
+            ViewBag.ProductID = new SelectList(repository.Products, "ProductID", "Name");
             return View();
         }
 
@@ -65,13 +65,23 @@ namespace LoanSystem.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PriceID,Date_From,ProductID,Product_Price,Default_Price")] Price price)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Prices.Add(price);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Prices.Add(price);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
+            catch (RetryLimitExceededException dex)
+            {
 
+                ModelState.AddModelError("", dex.Message);
+            }
+           
+
+            ViewBag.ProductID = new SelectList(repository.Products, "ProductID", "Name");
             return View(price);
         }
 
@@ -87,23 +97,46 @@ namespace LoanSystem.WebUI.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewBag.ProductID = new SelectList(repository.Products, "ProductID", "Name");
             return View(price);
         }
 
         // POST: Price/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PriceID,Date_From,ProductID,Product_Price,Default_Price")] Price price)
+        public ActionResult EditPost(int? PriceID)
         {
-            if (ModelState.IsValid)
+            if (PriceID == 0)
             {
-                db.Entry(price).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View(price);
+
+            Price priceToUpdate = repository.Prices.FirstOrDefault(p => p.PriceID == PriceID);
+            if (priceToUpdate == null)
+            {
+                return HttpNotFound();
+            }
+            try
+            {
+                if (TryUpdateModel(priceToUpdate,"", 
+                    new string[] {"Date_From","ProductID","Product_Price","Default_Price" }))
+                {
+                    repository.SavePrice(priceToUpdate);
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (RetryLimitExceededException dex)
+            {
+                ModelState.AddModelError("", dex);
+                TempData["message"] = "Unable to save changes. Try again, and if the problem persists, see your system administrator";
+            }
+
+
+            ViewBag.ProductID = new SelectList(repository.Products, "ProductID", "Name");
+            return View(priceToUpdate);
         }
 
         // GET: Price/Delete/5

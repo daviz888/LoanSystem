@@ -3,6 +3,7 @@ using LoanSystem.Domain.Entities;
 using LoanSystem.WebUI.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -21,7 +22,7 @@ namespace LoanSystem.WebUI.Controllers
             this.repository = repo;
         }
               
-        public ViewResult List(int? SelectedCategory, int page=1)
+        public ActionResult Index(int? SelectedCategory, int page=1)
         {
             var categories = repository.Categories.OrderBy(c => c.Name);
             ViewBag.SelectedCategory = new SelectList(categories, "CategoryID", "Name", SelectedCategory);
@@ -31,7 +32,8 @@ namespace LoanSystem.WebUI.Controllers
             ProductListViewModel model = new ProductListViewModel
             {
                 Products = repository.Products
-                    .Where(c => !SelectedCategory.HasValue || c.CategoryID == categoryID)
+                    .Include(p => p.Prices)
+                    .Where(p => !SelectedCategory.HasValue || p.CategoryID == categoryID)
                     .OrderBy(p => p.Name)                    
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize),
@@ -43,7 +45,8 @@ namespace LoanSystem.WebUI.Controllers
                         repository.Products.Count() :
                         repository.Products.Where(p => p.CategoryID == SelectedCategory).Count()
                 },
-                CurrentCategory = SelectedCategory,               
+                CurrentCategory = SelectedCategory, 
+                
             };
 
             return View(model);
@@ -102,7 +105,7 @@ namespace LoanSystem.WebUI.Controllers
                 TempData["message"] = string.Format("{0} Successfully deleted...", deleteProduct.Name);
 
             }
-            return RedirectToAction("List");
+            return RedirectToAction("Index");
         }
 
         public FileContentResult GetImage(int productID)

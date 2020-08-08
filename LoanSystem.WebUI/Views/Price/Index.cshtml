@@ -1,5 +1,6 @@
 ﻿@model LoanSystem.WebUI.Models.PriceListViewModel
 
+
 @{
     ViewBag.Title = "Index";
 }
@@ -12,40 +13,49 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Date_From)
+            Price ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductID)
+            Effective Date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Product_Price)
+            Product
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Default_Price)
+            Price
         </th>
-        <th></th>
+        <th>
+            Default Price
+        </th>
+        <th>Action(s)</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date_From)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Product_Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Default_Price)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PriceID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PriceID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PriceID })
-        </td>
-    </tr>
+@foreach (var item in Model.Prices) {
+<tr>
+    <td>
+        @item.PriceID.ToString("D4")
+        @*@Html.DisplayFor(modelItem => item.PriceID.ToString("d4"))*@
+    </td>
+    <td>
+        @item.Date_From.ToString("MM/dd/yyyy")
+        @*@Html.DisplayFor(modelItem => item.Date_From)*@
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Products.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Product_Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Default_Price)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.PriceID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.PriceID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.PriceID })
+    </td>
+</tr>
 }
 
 </table>

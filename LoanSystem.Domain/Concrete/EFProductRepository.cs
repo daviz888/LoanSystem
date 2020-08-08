@@ -1,6 +1,7 @@
 ﻿using LoanSystem.Domain.Abstract;
 using LoanSystem.Domain.Entities;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LoanSystem.Domain.Concrete
 {
@@ -8,7 +9,7 @@ namespace LoanSystem.Domain.Concrete
     {
         private EFDbContext context = new EFDbContext();
         
-        public IEnumerable<Product> Products
+        public IQueryable<Product> Products
         {
             get { return context.Products; }
         }
@@ -33,7 +34,7 @@ namespace LoanSystem.Domain.Concrete
                     dbEntry.Description = product.Description.ToUpper();
                     dbEntry.CategoryID = product.CategoryID;
                     dbEntry.Unit = product.Unit;
-                    dbEntry.Price = product.Price;
+                    //dbEntry.Price = product.Price;
                     dbEntry.ImageData = product.ImageData;
                     dbEntry.ImageMimeType = product.ImageMimeType;
                 }

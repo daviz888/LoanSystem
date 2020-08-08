@@ -8,7 +8,7 @@ namespace LoanSystem.WebUI.Models
     {
         public IEnumerable<Price> Prices { get; set; }
 
-        public IEnumerable<Product> Products { get; set; }
+        //public IEnumerable<Product> Products { get; set; }
        
     }
 }

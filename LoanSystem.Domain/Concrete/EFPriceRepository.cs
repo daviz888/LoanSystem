@@ -12,11 +12,15 @@ namespace LoanSystem.Domain.Concrete
     {
         private EFDbContext context = new EFDbContext();
 
-        public IEnumerable<Price> Prices
+        public IQueryable<Price> Prices
         {
             get { return context.Prices; }
         }
 
+        public IEnumerable<Product> Products
+        {
+            get { return context.Products; }
+        }
         public void SavePrice(Price price)
         {
             if (price.PriceID == 0)
