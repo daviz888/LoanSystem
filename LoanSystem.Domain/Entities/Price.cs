@@ -23,7 +23,7 @@ namespace LoanSystem.Domain.Entities
 
         [Required]
         [Display(Name = "Default Price")]
-        public bool? Default_Price { get; set; } = false;
+        public bool Default_Price { get; set; } = false;
 
         public virtual Product Products { get; set; }
     }

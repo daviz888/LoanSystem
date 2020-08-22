@@ -51,5 +51,11 @@ namespace LoanSystem.Domain.Concrete
 
             return priceToDelete;
         }
+
+        public int getPrice(int priceID)
+        {
+            var priceVal = context.Prices.Find(priceID);
+            return (int)priceVal.Product_Price;
+        }
     }
 }

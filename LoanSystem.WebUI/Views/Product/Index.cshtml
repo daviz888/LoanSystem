@@ -47,18 +47,22 @@
                             <td>@item.Category.Name</td>
                             <td>@item.Unit</td>                            
                             <td>
-                                @{ 
+                                @{
                                     foreach (var price in item.Prices)
                                     {
-                                        @price.Product_Price  
+
                                         if (price.Default_Price)
                                         {
-                                            @:Current Price
+                                            <strong> @price.Product_Price </strong> @:Current Price
                                         }
-                                        <br/>
+                                        else
+                                        {
+                                            @price.Product_Price
+                                        }
+                                        <br />
                                     }
                                 }
-                            
+
                             </td>
                             <td class="align-middle">
                                 <img class="img-thumbnail" width="64" height="64"
